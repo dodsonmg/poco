@@ -46,7 +46,7 @@ using UIntPtr = std::uintptr_t;
 	#if defined(_WIN64)
 		#define POCO_PTR_IS_64_BIT 1
 	#else
-		#if defined(__LP64__)
+		#if defined(__LP64__) || (defined(__SIZEOF_LONG__) && __SIZEOF_LONG__ == 8)
 			#define POCO_PTR_IS_64_BIT 1
 			#define POCO_LONG_IS_64_BIT 1
 			#if POCO_OS == POCO_OS_LINUX || POCO_OS == POCO_OS_FREE_BSD || POCO_OS == POCO_OS_ANDROID
